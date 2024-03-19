@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Risk Assessment Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8 max-w-md">
+        <h2 class="text-2xl font-semibold mb-6 text-center">Insurance Premium Assessment Form</h2>
+        <form id="loginForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <label for="age" class="block text-gray-700 text-sm font-bold mb-2">Age</label>
+                <input type="number"  placeholder="Age" id="age" name="age" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="gender" class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
+                <select id="gender" name="gender" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="bmi" class="block text-gray-700 text-sm font-bold mb-2">BMI</label>
+                <input type="text" id="bmi" name="bmi" required placeholder="Enter BMI as a decimal value"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="children" class="block text-gray-700 text-sm font-bold mb-2">Children (Number)</label>
+                <input type="number" id="children" name="children" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="smoker" class="block text-gray-700 text-sm font-bold mb-2">Smoker?</label>
+                <select id="smoker" name="smoker" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Select Option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="region" class="block text-gray-700 text-sm font-bold mb-2">Region</label>
+                <select id="region" name="region" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Select Region</option>
+                    <option value="south_east">South East</option>
+                    <option value="north_west">North West</option>
+                </select>
+            </div>
+            <div class="flex items-center justify-center">
+                <button type="submit"
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-20 rounded focus:outline-none focus:shadow-outline">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+            var age = document.getElementById("age").value;
+            var gender = document.getElementById("gender").value;
+            var bmi = document.getElementById("bmi").value;
+            var children = document.getElementById("children").value;
+            var smoker = document.getElementById("smoker").value;
+            var region = document.getElementById("region").value;
+
+            // Here you can add validation and further processing, like sending the data to a server for authentication
+            // For demonstration purpose, let's just log the entered values to the console
+            console.log("Age:", age);
+            console.log("Gender:", gender);
+            console.log("BMI:", bmi);
+            console.log("Children:", children);
+            console.log("Smoker:", smoker);
+            console.log("Region:", region);
+            //
+
+        });
+    </script>
+</body>
+
+</html>

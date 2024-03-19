@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #fff;
+        }
+
+        .header {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+            background-color: #22c55e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            background-image: url("../images/v11_76.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .footer p {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .feature-section {
+            position: absolute;
+            top: 348px;
+            width: 100%;
+            height: 382px;
+            display: flex;
+            /* flex-direction:column; */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bottom {
+            position: absolute;
+            top: 348px;
+            width: 100%;
+            height: 382px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feature-box {
+            /* scale:1.1; */
+            width: 4600px;
+            height: 200px;
+            background-color: #fff;
+            /* border: solid#00000018 ; */
+            border-radius: 8px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            margin-right: 20px;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .feature-box:last-child {
+            margin-right: 0;
+        }
+
+        .feature-title {
+            width: 100%;
+            height: 48px;
+            background-image: url("../images/v11_81.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            line-height: 48px;
+            color: #166534;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .feature-description {
+            width: 100%;
+            height: 28px;
+            background-image: url("../images/v11_83.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            line-height: 28px;
+            color: #16A34A;
+            font-family: 'Roboto', sans-serif;
+            /* font-weight: 600; */
+            font-size: 18px;
+            /* padding: 10030px; */
+        }
+
+        .feature-icon {
+            width: 30px;
+            height: 30px;
+            /* background-color: #22c55e; */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 16px auto;
+            scale: 2;
+        }
+
+        .feature-icon img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .content-section {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            height: 288px;
+            background-color: #dcfce7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-box {
+            width: 529px;
+            height: 228px;
+            background-image: url("../images/v11_107.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .content-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: #16813d;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .content-subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+            color: #16813d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cta-button {
+            background-color: #22c55e;
+            padding: 12px 24px 12px 24px;
+            border-radius: 8px;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 1);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #18a64b;
+        }
+
+        .cta-button {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #22c55e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin-right: 20px;
+        }
+
+        .nav-link {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #fff;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="navigation">
+            <div class="logo" style="margin-left: 20px;">RiskInsight</div>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="login" class="nav-link">Log In</a></li>
+                <li class="nav-item"><a href="signup" class="nav-link">Sign Up</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="feature-section">
+
+
+            <div class="feature-box">
+                <div class="feature-icon"><img src="1.png" alt="Secure Icon"></div>
+                <div class="feature-title">Machine Learning Accuracy</div>
+                <div class="feature-description">Your data is protected with industry-leading security measures.</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><img src="2.png" alt="Insights Icon"></div>
+                <div class="feature-title">Real-time Insights</div>
+                <div class="feature-description">Make informed decisions with real-time data analysis.</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><img src="3.png" alt="ML Icon"></div>
+                <div class="feature-title">Secure & Reliable</div>
+                <div class="feature-description">Highly accurate predictions using the latest in ML technology.</div>
+            </div>
+
+        </div>
+
+        <div class="content-section">
+            <div class="content-box">
+                <p class="content-subtitle">Welcome to RiskInsight</p>
+                <p class="content-title">Your go-to Machine Learning based insurance premium calculator tool.</p>
+                <!-- <div class="cta-button"><p>Get Started</p></div> -->
+                <button class="cta-button">Get Started
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
