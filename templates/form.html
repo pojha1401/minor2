@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Risk Assessment Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8 max-w-md">
+        <h2 class="text-2xl font-semibold mb-6 text-center">Insurance Premium Assessment Form</h2>
+        <form id="insuranceForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/result" method="POST">
+            <div class="mb-4">
+                <label for="age" class="block text-gray-700 text-sm font-bold mb-2">Age</label>
+                <input type="number" placeholder="Age" id="age" name="age" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="sex" class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
+                <select id="sex" name="sex" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Select Gender</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="bmi" class="block text-gray-700 text-sm font-bold mb-2">BMI</label>
+                <input type="text" id="bmi" name="bmi" required placeholder="Enter BMI as a decimal value"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="children" class="block text-gray-700 text-sm font-bold mb-2">Children (Number)</label>
+                <input type="number" id="children" name="children" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="smoker" class="block text-gray-700 text-sm font-bold mb-2">Smoker?</label>
+                <select id="smoker" name="smoker" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Select Option</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="region" class="block text-gray-700 text-sm font-bold mb-2">Region</label>
+                <select id="region" name="region" required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">Select Region</option>
+                    <option value="0">South East</option>
+                    <option value="1">North West</option>
+                </select>
+            </div>
+            <div class="flex items-center justify-center">
+                <button type="submit"
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-20 rounded focus:outline-none focus:shadow-outline">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("insuranceForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+            var age = parseFloat(document.getElementById("age").value);
+            var sex = parseFloat(document.getElementById("sex").value);
+            var bmi = parseFloat(document.getElementById("bmi").value);
+            var children = parseFloat(document.getElementById("children").value);
+            var smoker = parseFloat(document.getElementById("smoker").value);
+            var region = parseFloat(document.getElementById("region").value);
+
+            // Prepare data to be sent
+            var formData = {
+                age: age,
+                sex: sex,
+                bmi: bmi,
+                children: children,
+                smoker: smoker,
+                region: region
+            };
+
+            console.log(formData);
+
+            // Make a POST request to the Flask endpoint
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Redirect to the result page with predicted premium
+                    window.location.href = 'http://localhost:3000/result?premium=' + data.prediction;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                });
+        });
+    </script>
+</body>
+
+</html>

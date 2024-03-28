@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicted Premium</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #E6F7E0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #3FA037;
+        }
+
+        .predicted-premium {
+            font-size: 36px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Predicted Premium</h1>
+        <div class="predicted-premium" id="predictedPremium">
+            <!-- This value will be replaced with the predicted premium -->
+        </div>
+    </div>
+
+    <script>
+        // Extract the premium value from the URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const premium = urlParams.get('premium');
+
+        // Update the content of the .predicted-premium element with the premium value
+        const predictedPremiumElement = document.getElementById('predictedPremium');
+        predictedPremiumElement.textContent = `$${premium}`;
+    </script>
+</body>
+
+</html>
